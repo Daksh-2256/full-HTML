@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <title>image</title>
+    </head>
+    <body>
+        <!-- basicaly this is a width problem can solve it  you can oprn website and 650px width screen then image will run in 650px -->
+        <img src="./bg.jpg" width="200px" alt="no imgage">
+         <picture>
+             <source media="(min-width: 650px)" srcset="./bg,jpg"/>
+             <source media="(min-width: 450px)" srcset="./bg,jpg"/>
+             <img src="./bg.jpg">
+        </picture>
+    </body>
+</html>

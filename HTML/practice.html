@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark mode switcher</title>
+    <style>
+        body{
+            margin: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+        }
+        label{
+            width: 500px;
+            height: 200px;
+            position: relative;
+            display: block;
+            background: #dad7cb;
+            border-radius: 200px;
+            box-shadow: inset 0 5px 15px rgba(0,0,0,0.4),inset 0 -5px 15px rgba(255,255,255,0.4);
+            cursor: pointer;
+            transition: 0.2s;
+
+        }
+        label::after{
+            content: "";
+            width: 180px;
+            height: 180px;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: linear-gradient(180deg,#ffcc89,#d80b0b);
+            border-radius: 180px;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+            transition: 0.2s;
+
+        }
+        input{
+            width: 0;
+            height: 0;
+            visibility: hidden;
+        }
+        input:checked + label{
+            background: #242424;
+
+        }
+        input:checked + label::after{
+            left: 490px;
+            transform: translateX(-100%);
+            background: linear-gradient(180deg,#777,#000);
+        }
+        label:active::after{
+            width: 260px;
+
+        }
+        .background{
+            width: 100vw;
+            height: 100vh;
+            background: #fff;
+            z-index: -1;
+            position: absolute;
+            transition: 0.2s;
+        }
+        input:checked + label + .background{
+            background: #242424;
+
+        }
+        label svg{
+            position: absolute;
+            width: 120px;
+            top: -300px;
+            z-index: 100;
+
+        }
+        label svg.sun{
+            left: 340px;
+            transition: 0.2s;
+
+        }
+        label svg.moon{
+            left: 40px;
+            transition: 0.2s;
+            width: 0px;
+            rotate: 90deg;
+
+        }
+        input:checked + label svg.sun{
+            width: 0px;
+            rotate: 90deg;
+
+        }
+        input :checked + label svg.moon{
+            width: 120px;
+            rotate: 0deg;
+        }
+    </style>
+</head>
+<body>
+    <input type="checkbox" id="darkmode-toggle">
+    <label for="darkmode-toggle">
+        <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+<svg width="800px" class="sun" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 3V4M12 20V21M4 12H3M6.31412 6.31412L5.5 5.5M17.6859 6.31412L18.5 5.5M6.31412 17.69L5.5 18.5001M17.6859 17.69L18.5 18.5001M21 12H20M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+        <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+<svg width="800px" class="moon" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M3.32031 11.6835C3.32031 16.6541 7.34975 20.6835 12.3203 20.6835C16.1075 20.6835 19.3483 18.3443 20.6768 15.032C19.6402 15.4486 18.5059 15.6834 17.3203 15.6834C12.3497 15.6834 8.32031 11.654 8.32031 6.68342C8.32031 5.50338 8.55165 4.36259 8.96453 3.32996C5.65605 4.66028 3.32031 7.89912 3.32031 11.6835Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+    </label>
+
+    <div class="background">
+
+    </div>
+</body>
+</html>
